@@ -168,9 +168,46 @@
     font-variant-numeric: tabular-nums;
     font-size: 0.88rem;
   }
-  .pub-title { font-style: italic; }
+
+  .pub-list li { padding: 0.8rem 0 0.8rem 2rem; }
+  .pub-title {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 0.15rem;
+  }
+  .pub-authors {
+    font-size: 0.92rem;
+    margin-bottom: 0.1rem;
+  }
   .me { font-weight: 700; }
-  .venue { color: var(--muted); }
+  .venue {
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+  .pub-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.4rem;
+  }
+  .pub-links a {
+    font-size: 0.78rem;
+    padding: 0.12rem 0.55rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--muted);
+    background: var(--bg-soft);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .pub-links a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    text-decoration: none;
+  }
   .first-author-badge {
     display: inline-block;
     background: var(--highlight);
@@ -342,49 +379,57 @@
   </div>
 
   <h2>Publications</h2>
-  <p style="font-size: 0.85rem; color: var(--muted); margin-top: -0.3rem;">
-    <span class="first-author-badge">★</span> denotes first author.
-  </p>
-
+  
   <h3>International Conference</h3>
   <ol class="pub-list">
     <li>
-      <span class="first-author-badge">★</span>
-      <span class="me">Jung Min Lee</span>, Dohyeok Lee, Jungwoo Lee.
-      <span class="pub-title"><a href="https://openreview.net/pdf?id=Dd4UIrXLKj" target="_blank" rel="noopener">Viewpoint-Invariant Latent Action Learning from Human Video Demonstrations</a></span>.
-      <span class="venue"><a href="https://space-in-vision-language-embodied-ai.github.io" target="_blank" rel="noopener">NeurIPS SpaVLE Workshop</a>, 2025.</span>
+      <div class="pub-title"><span class="first-author-badge">★</span>Viewpoint-Invariant Latent Action Learning from Human Video Demonstrations</div>
+      <div class="pub-authors"><span class="me">Jung Min Lee</span>, Dohyeok Lee, Jungwoo Lee</div>
+      <div class="venue">NeurIPS SpaVLE Workshop, 2025</div>
+      <div class="pub-links">
+        <a href="https://openreview.net/pdf?id=Dd4UIrXLKj" target="_blank" rel="noopener">PDF</a>
+        <a href="https://space-in-vision-language-embodied-ai.github.io" target="_blank" rel="noopener">Website</a>
+      </div>
     </li>
     <li>
-      Dohyeok Lee, <span class="me">Jung Min Lee</span>, Munkyung Kim, Seokhun Ju, Seungyub Han, Jin Woo Koo, Jungwoo Lee.
-      <span class="pub-title"><a href="https://embodied-ai.org/papers/2025/10_Dynamics_Aligned_Flow_Match.pdf" target="_blank" rel="noopener">Dynamics-Aligned Flow Matching Policy for Robot Learning</a></span>.
-      <span class="venue"><a href="https://embodied-ai.org/cvpr2025/" target="_blank" rel="noopener">CVPR EAI Workshop</a>, 2025.</span>
+      <div class="pub-title">Dynamics-Aligned Flow Matching Policy for Robot Learning</div>
+      <div class="pub-authors">Dohyeok Lee, <span class="me">Jung Min Lee</span>, Munkyung Kim, Seokhun Ju, Seungyub Han, Jin Woo Koo, Jungwoo Lee</div>
+      <div class="venue">CVPR EAI Workshop, 2025</div>
+      <div class="pub-links">
+        <a href="https://embodied-ai.org/papers/2025/10_Dynamics_Aligned_Flow_Match.pdf" target="_blank" rel="noopener">PDF</a>
+        <a href="https://embodied-ai.org/cvpr2025/" target="_blank" rel="noopener">Website</a>
+      </div>
     </li>
     <li>
-      Dohyeok Lee, Munkyung Kim, <span class="me">Jung Min Lee</span>, Seungyub Han, Jungwoo Lee.
-      <span class="pub-title"><a href="https://embodied-ai.org/papers/2025/9_View_Imagination_Enhancing_V.pdf" target="_blank" rel="noopener">View-Imagination: Enhancing Visuomotor Control with Adaptive View Synthesis</a></span>.
-      <span class="venue"><a href="https://embodied-ai.org/cvpr2025/" target="_blank" rel="noopener">CVPR EAI Workshop</a>, 2025.</span>
+      <div class="pub-title">View-Imagination: Enhancing Visuomotor Control with Adaptive View Synthesis</div>
+      <div class="pub-authors">Dohyeok Lee, Munkyung Kim, <span class="me">Jung Min Lee</span>, Seungyub Han, Jungwoo Lee</div>
+      <div class="venue">CVPR EAI Workshop, 2025</div>
+      <div class="pub-links">
+        <a href="https://embodied-ai.org/papers/2025/9_View_Imagination_Enhancing_V.pdf" target="_blank" rel="noopener">PDF</a>
+        <a href="https://embodied-ai.org/cvpr2025/" target="_blank" rel="noopener">Website</a>
+      </div>
     </li>
   </ol>
 
   <h3>Preprint</h3>
   <ol class="pub-list">
     <li>
-      <span class="first-author-badge">★</span>
-      <span class="me">Jung Min Lee</span>, Dohyeok Lee, Seokhun Ju, Taehyun Cho, Jin Woo Koo, Li Zhao, Sangwoo Hong, Jungwoo Lee.
-      <span class="pub-title"><a href="https://www.arxiv.org/abs/2602.03668" target="_blank" rel="noopener">MVP-LAM: Learning Action-Centric Latent Action via Cross-Viewpoint Reconstruction</a></span>.
-      <span class="venue">arXiv preprint, 2026.</span>
+      <div class="pub-title"><span class="first-author-badge">★</span>MVP-LAM: Learning Action-Centric Latent Action via Cross-Viewpoint Reconstruction</div>
+      <div class="pub-authors"><span class="me">Jung Min Lee</span>, Dohyeok Lee, Seokhun Ju, Taehyun Cho, Jin Woo Koo, Li Zhao, Sangwoo Hong, Jungwoo Lee</div>
+      <div class="venue">arXiv preprint, 2026</div>
+      <div class="pub-links">
+        <a href="https://www.arxiv.org/abs/2602.03668" target="_blank" rel="noopener">arXiv</a>
+      </div>
     </li>
     <li>
-      Dohyeok Lee, <span class="me">Jung Min Lee</span>, Munkyung Kim, Seokhun Ju, Jin Woo Koo, Kyungjae Lee, Dohyeong Kim, TaeHyun Cho, Jungwoo Lee.
-      <span class="pub-title"><a href="https://arxiv.org/abs/2510.27114" target="_blank" rel="noopener">Learning Generalizable Visuomotor Policy through Dynamics-Alignment</a></span>.
-      <span class="venue">arXiv preprint, 2025.</span>
+      <div class="pub-title">Learning Generalizable Visuomotor Policy through Dynamics-Alignment</div>
+      <div class="pub-authors">Dohyeok Lee, <span class="me">Jung Min Lee</span>, Munkyung Kim, Seokhun Ju, Jin Woo Koo, Kyungjae Lee, Dohyeong Kim, TaeHyun Cho, Jungwoo Lee</div>
+      <div class="venue">arXiv preprint, 2025</div>
+      <div class="pub-links">
+        <a href="https://arxiv.org/abs/2510.27114" target="_blank" rel="noopener">arXiv</a>
+      </div>
     </li>
   </ol>
-
-  <h3>Manuscript in Preparation</h3>
-  <ul>
-    <li>Understanding the locomotion of Hexapod organism via Tegotae model — in terms of nonlinear dynamics.</li>
-  </ul>
 
   <h2>Open Source</h2>
   <p style="margin-bottom: 0.3rem;">

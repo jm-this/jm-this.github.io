@@ -227,14 +227,29 @@
     align-items: start;
     padding: 0.9rem 0 0.9rem 2rem;
   }
+  .pub-list li.no-thumb {
+    grid-template-columns: 1fr;
+  }
   .pub-thumb {
     width: 140px;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
     border-radius: 6px;
     border: 1px solid var(--border);
     background: var(--bg-soft);
     object-fit: cover;
     display: block;
+  }
+  .pub-list li.highlight {
+    background: linear-gradient(to right, #fffbeb, #fff 60%);
+    border-left: 3px solid #f59e0b;
+    border-radius: 0 6px 6px 0;
+    padding-left: 2.2rem;
+    margin: 0.3rem 0;
+  }
+  .pub-list li.highlight::before {
+    left: 0.6rem;
+    color: #f59e0b;
+    font-weight: 600;
   }
   .pub-content {
     min-width: 0;
@@ -413,8 +428,8 @@
 
   <h3>Preprint</h3>
   <ol class="pub-list">
-    <li>
-      <img class="pub-thumb" src="assets/mvp-lam.png" alt="MVP-LAM thumbnail" onerror="this.style.background='var(--bg-soft)';this.removeAttribute('src');">
+    <li class="highlight>
+      <img class="pub-thumb" src="assets/mvp_lam.png" alt="MVP-LAM thumbnail" onerror="this.style.background='var(--bg-soft)';this.removeAttribute('src');">
       <div class="pub-content">
         <div class="pub-title"><span class="first-author-badge">★</span>MVP-LAM: Learning Action-Centric Latent Action via Cross-Viewpoint Reconstruction</div>
         <div class="pub-authors"><span class="me">Jung Min Lee</span>, Dohyeok Lee, Seokhun Ju, Taehyun Cho, Jin Woo Koo, Li Zhao, Sangwoo Hong, Jungwoo Lee</div>
@@ -427,7 +442,7 @@
       </div>
     </li>
     <li>
-      <img class="pub-thumb" src="assets/dynamics-alignment.png" alt="Dynamics-Alignment thumbnail" onerror="this.style.background='var(--bg-soft)';this.removeAttribute('src');">
+      <img class="pub-thumb" src="assets/dap.png" alt="Dynamics-Alignment thumbnail" onerror="this.style.background='var(--bg-soft)';this.removeAttribute('src');">
       <div class="pub-content">
         <div class="pub-title">Learning Generalizable Visuomotor Policy through Dynamics-Alignment</div>
         <div class="pub-authors">Dohyeok Lee, <span class="me">Jung Min Lee</span>, Munkyung Kim, Seokhun Ju, Jin Woo Koo, Kyungjae Lee, Dohyeong Kim, TaeHyun Cho, Jungwoo Lee</div>
@@ -438,11 +453,10 @@
       </div>
     </li>
   </ol>
-
+  
   <h3>International Conference</h3>
   <ol class="pub-list">
-    <li>
-      <img class="pub-thumb" src="assets/vila.png" alt="ViLA thumbnail" onerror="this.style.background='var(--bg-soft)';this.removeAttribute('src');">
+    <li class="no-thumb">
       <div class="pub-content">
         <div class="pub-title"><span class="first-author-badge">★</span>Viewpoint-Invariant Latent Action Learning from Human Video Demonstrations</div>
         <div class="pub-authors"><span class="me">Jung Min Lee</span>, Dohyeok Lee, Jungwoo Lee</div>
@@ -453,8 +467,7 @@
         </div>
       </div>
     </li>
-    <li>
-      <img class="pub-thumb" src="assets/dafm.png" alt="DAFM thumbnail" onerror="this.style.background='var(--bg-soft)';this.removeAttribute('src');">
+    <li class="no-thumb">
       <div class="pub-content">
         <div class="pub-title">Dynamics-Aligned Flow Matching Policy for Robot Learning</div>
         <div class="pub-authors">Dohyeok Lee, <span class="me">Jung Min Lee</span>, Munkyung Kim, Seokhun Ju, Seungyub Han, Jin Woo Koo, Jungwoo Lee</div>
@@ -465,8 +478,7 @@
         </div>
       </div>
     </li>
-    <li>
-      <img class="pub-thumb" src="assets/view-imagination.png" alt="View-Imagination thumbnail" onerror="this.style.background='var(--bg-soft)';this.removeAttribute('src');">
+    <li class="no-thumb">
       <div class="pub-content">
         <div class="pub-title">View-Imagination: Enhancing Visuomotor Control with Adaptive View Synthesis</div>
         <div class="pub-authors">Dohyeok Lee, Munkyung Kim, <span class="me">Jung Min Lee</span>, Seungyub Han, Jungwoo Lee</div>

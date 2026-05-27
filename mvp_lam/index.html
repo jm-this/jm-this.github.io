@@ -235,26 +235,34 @@
           </table>
         </div>
         
-        <h3 class="title is-4" style="margin-top: 1.25rem;">LIBERO-Long</h3>
+        <h3 class="title is-4" style="margin-top: 1.25rem;">LIBERO benchmark</h3>
+        <div class="content">
+          <p>
+            Success rate in percent on LIBERO suites for VLAs pretrained on OXE (upper) and Bridge V2 (lower).
+            $\ast$ indicates methods that use additional wrist-view images and proprioceptive states.
+            Best is bolded and second best is underlined.
+          </p>
+        </div>
         <div class="table-container">
           <table class="table is-fullwidth is-striped is-hoverable">
             <thead>
               <tr>
-                <th>MVP-LAM</th>
-                <th>UniVLA (Bridge)</th>
-                <th>OpenVLA</th>
-                <th>$\pi_0$</th>
-                <th>UniVLA (OXE)</th>
+                <th>Method</th>
+                <th>Spatial</th>
+                <th>Object</th>
+                <th>Goal</th>
+                <th>Long</th>
+                <th>AVG</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><b>90.8</b></td>
-                <td><u>79.4</u></td>
-                <td>53.7</td>
-                <td>85.2</td>
-                <td>92.0</td>
-              </tr>
+              <tr><td>Octo</td><td>78.9</td><td>85.7</td><td>84.6</td><td>51.1</td><td>75.1</td></tr>
+              <tr><td>OpenVLA</td><td>84.7</td><td>88.4</td><td>79.2</td><td>53.7</td><td>76.5</td></tr>
+              <tr><td>LAPA</td><td>73.8</td><td>74.6</td><td>58.8</td><td>55.4</td><td>65.7</td></tr>
+              <tr><td>$\pi_0\ast$</td><td><b>96.8</b></td><td><b>98.8</b></td><td><b>95.8</b></td><td>85.2</td><td><b>94.2</b></td></tr>
+              <tr><td colspan="6" style="border-top: 2px solid #dbdbdb; padding: 0;"></td></tr>
+              <tr><td>UniVLA</td><td>95.2</td><td><u>95.4</u></td><td>91.9</td><td><u>87.5</u></td><td>92.5</td></tr>
+              <tr><td><b>MVP-LAM</b></td><td><u>96.0</u></td><td>94.6</td><td><u>94.8</u></td><td><b>90.8</b></td><td><u>94.1</u></td></tr>
             </tbody>
           </table>
         </div>

@@ -140,15 +140,17 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Learning <em>latent actions</em> from diverse human videos enables scaling robot learning beyond embodiment-specific robot datasets,
-            and these latent actions have been used as pseudo-action labels for vision-language-action (VLA) model pretraining.
-            To make VLA pretraining effective, latent actions should contain information about the underlying agent actions despite missing ground-truth labels.
-            We propose Multi-ViewPoint Latent Action Model (MVP-LAM), which learns discrete latent actions from time-synchronized multi-view videos.
-            MVP-LAM trains latent actions with a cross-viewpoint reconstruction objective so that a latent action inferred from one view must explain the future in another view,
-            reducing reliance on viewpoint-specific cues.
-            On Bridge V2, MVP-LAM improves action-centricity, achieving higher mutual information with ground-truth actions and improved action prediction,
-            including under out-of-distribution evaluation.
-            Pretraining VLAs with MVP-LAM latent actions improves downstream manipulation performance on the SIMPLER and LIBERO-Long benchmarks.
+            Latent actions learned from diverse human videos serve as pseudo-labels for vision-language-action (VLA) pretraining,
+            but provide effective supervision only if they remain informative about the underlying ground-truth actions.
+            For effective supervision, latent actions should contain information about the underlying actions even though they are inaccessible.
+            We propose <b>M</b>ulti-<b>V</b>iew<b>P</b>oint <b>L</b>atent <b>A</b>ction <b>M</b>odel (<b>MVP-LAM</b>),
+            which learns latent actions that are highly informative about ground-truth actions from multi-view videos.
+            MVP-LAM trains latent actions with a <em>cross-viewpoint reconstruction</em> objective,
+            so that a latent action from one view must explain the future in another view, reducing reliance on viewpoint-specific cues.
+            On Bridge V2, MVP-LAM produces more action-centric latent actions,
+            achieving higher mutual information with ground-truth actions and improved action prediction, including under out-of-distribution evaluation.
+            Finally, pretraining VLAs with MVP-LAM latent actions improves downstream manipulation performance on various benchmarks.
+            The code and trained checkpoints are available at <a href="https://jm-this.github.io/mvp_lam/">https://jm-this.github.io/mvp_lam/</a>.
           </p>
         </div>
       </div>

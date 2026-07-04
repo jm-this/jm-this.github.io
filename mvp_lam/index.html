@@ -41,7 +41,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
 
-          <h1 class="title is-1 publication-title">
+          <h1 class="title is-1 publication-title" style="font-size: 2.35rem; line-height: 1.25; max-width: 900px; margin-left: auto; margin-right: auto;">
             MVP-LAM: Learning Action-Centric Latent Action via Cross-Viewpoint Reconstruction
           </h1>
 
@@ -183,392 +183,388 @@
 
 <section class="section" id="experiments">
   <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Experiments</h2>
+    <div class="column is-full-width">
+      <h2 class="title is-3">Experiments</h2>
 
-        <h3 class="title is-4">RQ1. Are MVP-LAM latent actions more action-centric</h3>
-        <div class="content has-text-justified">
-          <p>
-            We measure action-centricity with mutual information between latent actions and ground-truth actions and with a linear probe that predicts actions from latent actions, reporting NMSE.
-            MVP-LAM achieves the highest estimated $\mathcal{I}(Z;A)$ across estimators and the lowest NMSE on Bridge V2.
-          </p>
-        </div>
-
-        <div class="content has-text-centered">
-          <img src="./assets/ac_res.png" alt="Mutual information and NMSE figure" style="max-width: 100%; height: auto;">
-        </div>
-
-        <h3 class="title is-4">RQ2. Is MVP-LAM effective for manipulation</h3>
-        <div class="content has-text-justified">
-          <p>
-            Pretraining with MVP-LAM latent actions improves downstream manipulation.
-            The average success rate increases from 39.6 percent to 60.4 percent on SIMPLER.
-            On LIBERO-Long, MVP-LAM reaches 90.8 percent success, improving over UniVLA pretrained on Bridge V2 at 79.4 percent.
-          </p>
-        </div>
-
-        <h3 class="title is-4">SIMPLER benchmark</h3>
-        <div class="content">
-          <p>Success rate and grasping rate in percent. Best is bolded and second best is underlined.</p>
-        </div>
-
-        <div class="table-container">
-          <table class="table is-fullwidth is-striped is-hoverable">
-            <thead>
-              <tr>
-                <th>Success Rate</th>
-                <th>MVP-LAM</th>
-                <th>UniVLA</th>
-                <th>LAPA</th>
-                <th>OpenVLA</th>
-                <th>Octo-Small</th>
-                <th>Octo-Base</th>
-                <th>$\pi_0$</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td><b>StackG2Y</b></td><td>33.3</td><td>16.7</td><td><b>54.2</b></td><td><u>41.6</u></td><td>8.3</td><td>0.0</td><td>37.5</td></tr>
-              <tr><td><b>Carrot2Plate</b></td><td><b>66.7</b></td><td>20.8</td><td>45.8</td><td><u>50.0</u></td><td>33.3</td><td>37.5</td><td>33.3</td></tr>
-              <tr><td><b>Spoon2Towel</b></td><td><u>66.7</u></td><td>54.2</td><td><b>70.8</b></td><td>37.5</td><td>25.0</td><td>12.5</td><td>29.2</td></tr>
-              <tr><td><b>Eggplant2Bask</b></td><td><b>75.0</b></td><td><u>66.7</u></td><td>58.3</td><td>16.7</td><td>12.5</td><td>20.8</td><td>45.8</td></tr>
-              <tr><td><b>AVG</b></td><td><b>60.4</b></td><td>39.6</td><td><u>57.3</u></td><td>36.4</td><td>19.8</td><td>17.7</td><td>36.5</td></tr>
-            </tbody>
-          </table>
-        </div>
-        
-        <h3 class="title is-4" style="margin-top: 1.25rem;">LIBERO benchmark</h3>
-        <div class="content">
-          <p>
-            Success rate in percent on LIBERO suites for VLAs pretrained on OXE (upper) and Bridge V2 (lower).
-            $\ast$ indicates methods that use additional wrist-view images and proprioceptive states.
-            Best is bolded and second best is underlined.
-          </p>
-        </div>
-        <div class="table-container">
-          <table class="table is-fullwidth is-striped is-hoverable">
-            <thead>
-              <tr>
-                <th>Method</th>
-                <th>Spatial</th>
-                <th>Object</th>
-                <th>Goal</th>
-                <th>Long</th>
-                <th>AVG</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Octo</td><td>78.9</td><td>85.7</td><td>84.6</td><td>51.1</td><td>75.1</td></tr>
-              <tr><td>OpenVLA</td><td>84.7</td><td>88.4</td><td>79.2</td><td>53.7</td><td>76.5</td></tr>
-              <tr><td>LAPA</td><td>73.8</td><td>74.6</td><td>58.8</td><td>55.4</td><td>65.7</td></tr>
-              <tr><td>$\pi_0\ast$</td><td><b>96.8</b></td><td><b>98.8</b></td><td><b>95.8</b></td><td>85.2</td><td><b>94.2</b></td></tr>
-              <tr><td colspan="6" style="border-top: 2px solid #dbdbdb; padding: 0;"></td></tr>
-              <tr><td>UniVLA</td><td>95.2</td><td><u>95.4</u></td><td>91.9</td><td><u>87.5</u></td><td>92.5</td></tr>
-              <tr><td><b>MVP-LAM</b></td><td><u>96.0</u></td><td>94.6</td><td><u>94.8</u></td><td><b>90.8</b></td><td><u>94.1</u></td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3 class="title is-4" style="margin-top: 1.25rem;">Visualization</h3>
-        <div class="content has-text-justified">
-          <p>
-            We show example discrete codes selected for representative frame transitions.
-            Similar motion patterns tend to activate similar codes across sources.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <img src="./assets/latent_action_vis.png" alt="Latent action visualization" style="max-width: 100%; height: auto;">
-        </div>
-
+      <h3 class="title is-4">RQ1. Are MVP-LAM latent actions more action-centric</h3>
+      <div class="content has-text-justified">
+        <p>
+          We measure action-centricity with mutual information between latent actions and ground-truth actions and with a linear probe that predicts actions from latent actions, reporting NMSE.
+          MVP-LAM achieves the highest estimated $\mathcal{I}(Z;A)$ across estimators and the lowest NMSE on Bridge V2.
+        </p>
       </div>
+
+      <div class="content has-text-centered">
+        <img src="./assets/ac_res.png" alt="Mutual information and NMSE figure" style="max-width: 100%; height: auto;">
+      </div>
+
+      <h3 class="title is-4">RQ2. Is MVP-LAM effective for manipulation</h3>
+      <div class="content has-text-justified">
+        <p>
+          Pretraining with MVP-LAM latent actions improves downstream manipulation.
+          The average success rate increases from 39.6 percent to 60.4 percent on SIMPLER.
+          On LIBERO-Long, MVP-LAM reaches 90.8 percent success, improving over UniVLA pretrained on Bridge V2 at 79.4 percent.
+        </p>
+      </div>
+
+      <h3 class="title is-4">SIMPLER benchmark</h3>
+      <div class="content">
+        <p>Success rate and grasping rate in percent. Best is bolded and second best is underlined.</p>
+      </div>
+
+      <div class="table-container">
+        <table class="table is-fullwidth is-striped is-hoverable">
+          <thead>
+            <tr>
+              <th>Success Rate</th>
+              <th>MVP-LAM</th>
+              <th>UniVLA</th>
+              <th>LAPA</th>
+              <th>OpenVLA</th>
+              <th>Octo-Small</th>
+              <th>Octo-Base</th>
+              <th>$\pi_0$</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><b>StackG2Y</b></td><td>33.3</td><td>16.7</td><td><b>54.2</b></td><td><u>41.6</u></td><td>8.3</td><td>0.0</td><td>37.5</td></tr>
+            <tr><td><b>Carrot2Plate</b></td><td><b>66.7</b></td><td>20.8</td><td>45.8</td><td><u>50.0</u></td><td>33.3</td><td>37.5</td><td>33.3</td></tr>
+            <tr><td><b>Spoon2Towel</b></td><td><u>66.7</u></td><td>54.2</td><td><b>70.8</b></td><td>37.5</td><td>25.0</td><td>12.5</td><td>29.2</td></tr>
+            <tr><td><b>Eggplant2Bask</b></td><td><b>75.0</b></td><td><u>66.7</u></td><td>58.3</td><td>16.7</td><td>12.5</td><td>20.8</td><td>45.8</td></tr>
+            <tr><td><b>AVG</b></td><td><b>60.4</b></td><td>39.6</td><td><u>57.3</u></td><td>36.4</td><td>19.8</td><td>17.7</td><td>36.5</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="title is-4" style="margin-top: 1.25rem;">LIBERO benchmark</h3>
+      <div class="content">
+        <p>
+          Success rate in percent on LIBERO suites for VLAs pretrained on OXE (upper) and Bridge V2 (lower).
+          $\ast$ indicates methods that use additional wrist-view images and proprioceptive states.
+          Best is bolded and second best is underlined.
+        </p>
+      </div>
+      <div class="table-container">
+        <table class="table is-fullwidth is-striped is-hoverable">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Spatial</th>
+              <th>Object</th>
+              <th>Goal</th>
+              <th>Long</th>
+              <th>AVG</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Octo</td><td>78.9</td><td>85.7</td><td>84.6</td><td>51.1</td><td>75.1</td></tr>
+            <tr><td>OpenVLA</td><td>84.7</td><td>88.4</td><td>79.2</td><td>53.7</td><td>76.5</td></tr>
+            <tr><td>LAPA</td><td>73.8</td><td>74.6</td><td>58.8</td><td>55.4</td><td>65.7</td></tr>
+            <tr><td>$\pi_0\ast$</td><td><b>96.8</b></td><td><b>98.8</b></td><td><b>95.8</b></td><td>85.2</td><td><b>94.2</b></td></tr>
+            <tr><td colspan="6" style="border-top: 2px solid #dbdbdb; padding: 0;"></td></tr>
+            <tr><td>UniVLA</td><td>95.2</td><td><u>95.4</u></td><td>91.9</td><td><u>87.5</u></td><td>92.5</td></tr>
+            <tr><td><b>MVP-LAM</b></td><td><u>96.0</u></td><td>94.6</td><td><u>94.8</u></td><td><b>90.8</b></td><td><u>94.1</u></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="title is-4" style="margin-top: 1.25rem;">Visualization</h3>
+      <div class="content has-text-justified">
+        <p>
+          We show example discrete codes selected for representative frame transitions.
+          Similar motion patterns tend to activate similar codes across sources.
+        </p>
+      </div>
+      <div class="content has-text-centered">
+        <img src="./assets/latent_action_vis.png" alt="Latent action visualization" style="max-width: 100%; height: auto;">
+      </div>
+
     </div>
   </div>
 </section>
 
 <section class="section" id="rollouts">
   <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Rollouts</h2>
-        <h3 class="title is-4">Stack green cube on yellow block</h4>
-        <div class="columns is-multiline">
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>MVP-LAM</b><span class="tag is-success is-light">Success</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/simpler/stackg2y/mvp-lam.mp4" type="video/mp4">
-              </video>
+    <div class="column is-full-width">
+      <h2 class="title is-3">Rollouts</h2>
+      <h3 class="title is-4">Stack green cube on yellow block</h3>
+      <div class="columns is-multiline">
+        <div class="column is-one-quarter-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>MVP-LAM</b><span class="tag is-success is-light">Success</span>
             </div>
-          </div>
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>UniVLA</b><span class="tag is-danger is-light">Fail</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/simpler/stackg2y/univla.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>Octo-B</b><span class="tag is-danger is-light">Fail</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/simpler/stackg2y/octo.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>$\pi_0$</b><span class="tag is-danger is-light">Fail</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/simpler/stackg2y/pi0.mp4" type="video/mp4">
-              </video>
-            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/simpler/stackg2y/mvp-lam.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
-
-        <h3 class="title is-4">Place carrot on plate</h4>
-        <div class="columns is-multiline">
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>MVP-LAM</b><span class="tag is-success is-light">Success</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/simpler/carrot2plate/mvp-lam.mp4" type="video/mp4">
-              </video>
+        <div class="column is-one-quarter-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>UniVLA</b><span class="tag is-danger is-light">Fail</span>
             </div>
-          </div>
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>UniVLA</b><span class="tag is-danger is-light">Fail</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/simpler/carrot2plate/univla.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>Octo-B</b><span class="tag is-success is-light">Success</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/simpler/carrot2plate/octo.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>$\pi_0$</b><span class="tag is-success is-light">Success</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/simpler/carrot2plate/pi0.mp4" type="video/mp4">
-              </video>
-            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/simpler/stackg2y/univla.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
-
-        <h3 class="title is-4">Place spoon on towel</h4>
-        <div class="columns is-multiline">
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>MVP-LAM</b><span class="tag is-success is-light">Success</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/simpler/spoon2towel/mvp-lam.mp4" type="video/mp4">
-              </video>
+        <div class="column is-one-quarter-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>Octo-B</b><span class="tag is-danger is-light">Fail</span>
             </div>
-          </div>
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>UniVLA</b><span class="tag is-success is-light">Success</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/simpler/spoon2towel/univla.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>Octo-B</b><span class="tag is-success is-light">Success</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/simpler/spoon2towel/octo.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>$\pi_0$</b><span class="tag is-danger is-light">Fail</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/simpler/spoon2towel/pi0.mp4" type="video/mp4">
-              </video>
-            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/simpler/stackg2y/octo.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
-
-        <h3 class="title is-4">Place eggplant in basket</h4>
-        <div class="columns is-multiline">
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>MVP-LAM</b><span class="tag is-success is-light">Success</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/simpler/eggplant2bask/mvp-lam.mp4" type="video/mp4">
-              </video>
+        <div class="column is-one-quarter-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>$\pi_0$</b><span class="tag is-danger is-light">Fail</span>
             </div>
-          </div>
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>UniVLA</b><span class="tag is-success is-light">Success</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/simpler/eggplant2bask/univla.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>Octo-B</b><span class="tag is-danger is-light">Fail</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/simpler/eggplant2bask/octo.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>$\pi_0$</b><span class="tag is-success is-light">Success</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/simpler/eggplant2bask/pi0.mp4" type="video/mp4">
-              </video>
-            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/simpler/stackg2y/pi0.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
-
-        <h3 class="title is-4">Put the black bowl in the bottom drawer of the cabinet and close it</h4>
-        <div class="columns is-multiline">
-          <div class="column is-one-third-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>MVP-LAM</b><span class="tag is-success is-light">Success</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/libero/put_bowl/mvp-lam.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-one-third-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>UniVLA</b><span class="tag is-success is-light">Success</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/libero/put_bowl/univla.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-one-third-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>$\pi_0$</b><span class="tag is-danger is-light">Fail</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/libero/put_bowl/pi0_30fps.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="title is-4">Put both moka pots on the stove</h4>
-        <div class="columns is-multiline">
-          <div class="column is-one-third-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>MVP-LAM</b><span class="tag is-success is-light">Success</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/libero/moka_to_stove/mvp-lam.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-one-third-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>UniVLA</b><span class="tag is-danger is-light">Fail</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/libero/moka_to_stove/univla.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-one-third-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>$\pi_0$</b><span class="tag is-success is-light">Success</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/libero/moka_to_stove/pi0_30fps.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="title is-4">Put the yellow and white mug in the microwave and close it</h4>
-        <div class="columns is-multiline">
-          <div class="column is-one-third-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>MVP-LAM</b><span class="tag is-success is-light">Success</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/libero/mug_to_microwave/mvp-lam.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-one-third-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>UniVLA</b><span class="tag is-danger is-light">Fail</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/libero/mug_to_microwave/univla.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-one-third-desktop is-half-tablet">
-            <div class="box">
-              <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <b>$\pi_0$</b><span class="tag is-success is-light">Success</span>
-              </div>
-              <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
-                <source src="assets/videos/libero/mug_to_microwave/pi0_30fps.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-
       </div>
+
+      <h3 class="title is-4">Place carrot on plate</h3>
+      <div class="columns is-multiline">
+        <div class="column is-one-quarter-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>MVP-LAM</b><span class="tag is-success is-light">Success</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/simpler/carrot2plate/mvp-lam.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column is-one-quarter-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>UniVLA</b><span class="tag is-danger is-light">Fail</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/simpler/carrot2plate/univla.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column is-one-quarter-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>Octo-B</b><span class="tag is-success is-light">Success</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/simpler/carrot2plate/octo.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column is-one-quarter-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>$\pi_0$</b><span class="tag is-success is-light">Success</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/simpler/carrot2plate/pi0.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="title is-4">Place spoon on towel</h3>
+      <div class="columns is-multiline">
+        <div class="column is-one-quarter-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>MVP-LAM</b><span class="tag is-success is-light">Success</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/simpler/spoon2towel/mvp-lam.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column is-one-quarter-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>UniVLA</b><span class="tag is-success is-light">Success</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/simpler/spoon2towel/univla.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column is-one-quarter-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>Octo-B</b><span class="tag is-success is-light">Success</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/simpler/spoon2towel/octo.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column is-one-quarter-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>$\pi_0$</b><span class="tag is-danger is-light">Fail</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/simpler/spoon2towel/pi0.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="title is-4">Place eggplant in basket</h3>
+      <div class="columns is-multiline">
+        <div class="column is-one-quarter-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>MVP-LAM</b><span class="tag is-success is-light">Success</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/simpler/eggplant2bask/mvp-lam.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column is-one-quarter-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>UniVLA</b><span class="tag is-success is-light">Success</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/simpler/eggplant2bask/univla.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column is-one-quarter-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>Octo-B</b><span class="tag is-danger is-light">Fail</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/simpler/eggplant2bask/octo.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column is-one-quarter-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>$\pi_0$</b><span class="tag is-success is-light">Success</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/simpler/eggplant2bask/pi0.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="title is-4">Put the black bowl in the bottom drawer of the cabinet and close it</h3>
+      <div class="columns is-multiline">
+        <div class="column is-one-third-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>MVP-LAM</b><span class="tag is-success is-light">Success</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/libero/put_bowl/mvp-lam.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column is-one-third-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>UniVLA</b><span class="tag is-success is-light">Success</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/libero/put_bowl/univla.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column is-one-third-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>$\pi_0$</b><span class="tag is-danger is-light">Fail</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/libero/put_bowl/pi0_30fps.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="title is-4">Put both moka pots on the stove</h3>
+      <div class="columns is-multiline">
+        <div class="column is-one-third-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>MVP-LAM</b><span class="tag is-success is-light">Success</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/libero/moka_to_stove/mvp-lam.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column is-one-third-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>UniVLA</b><span class="tag is-danger is-light">Fail</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/libero/moka_to_stove/univla.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column is-one-third-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>$\pi_0$</b><span class="tag is-success is-light">Success</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/libero/moka_to_stove/pi0_30fps.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="title is-4">Put the yellow and white mug in the microwave and close it</h3>
+      <div class="columns is-multiline">
+        <div class="column is-one-third-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>MVP-LAM</b><span class="tag is-success is-light">Success</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/libero/mug_to_microwave/mvp-lam.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column is-one-third-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>UniVLA</b><span class="tag is-danger is-light">Fail</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/libero/mug_to_microwave/univla.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column is-one-third-desktop is-half-tablet">
+          <div class="box">
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <b>$\pi_0$</b><span class="tag is-success is-light">Success</span>
+            </div>
+            <video autoplay loop controls preload="metadata" playsinline muted style="width:100%; margin-top: 0.5rem;">
+              <source src="assets/videos/libero/mug_to_microwave/pi0_30fps.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -576,14 +572,13 @@
 <section class="section" id="bibtex">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@misc{lee2026mvplamlearningactioncentriclatent,
-  title     = {MVP-LAM: Learning Action-Centric Latent Action via Cross-Viewpoint Reconstruction},
-  author    = {Jung Min Lee and Dohyeok Lee and Seokhun Ju and Taehyun Cho and Jin Woo Koo and Li Zhao and Sangwoo Hong and Jungwoo Lee},
-  year      = {2026},
-  eprint    = {2602.03668},
-  archivePrefix = {arXiv},
-  primaryClass  = {cs.RO},
-  url       = {https://arxiv.org/abs/2602.03668}
+    <pre><code>@inproceedings{
+lee2026mvplam,
+title={{MVP}-{LAM}: Learning Action-Centric Latent Action via Cross-Viewpoint Reconstruction},
+author={Jung Min Lee and Dohyeok Lee and Seokhun Ju and Taehyun Cho and Jin Woo Koo and Li Zhao and Sangwoo Hong and Jungwoo Lee},
+booktitle={Forty-third International Conference on Machine Learning},
+year={2026},
+url={https://openreview.net/forum?id=r0SYyjDhxY}
 }</code></pre>
   </div>
 </section>
